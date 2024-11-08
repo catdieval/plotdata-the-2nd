@@ -139,12 +139,18 @@ export default function Plotting({
               layout={{
                 title: {
                   text: settings.titleLabel,
-                  y: 0.9, 
+                  y: screen.width >= 500
+                  ? 0.95
+                  : 0.9, 
                 },
                 xaxis: xAxisOptions,
                 yaxis: yAxisOptions,
-                width: 500,
-                height: 400, 
+                width: screen.width >= 500 
+                ? 500
+                : 350, 
+                height: screen.width >= 500
+                ? 400
+                : 250,
                 margin: {
                   t: 50,
                   b: 50,

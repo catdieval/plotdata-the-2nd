@@ -3,7 +3,7 @@ import Container from "../Components/Container";
 import Button from "../Components/Button";
 import { useRouter } from "next/router";
 
-export default function Plot({
+export default function PlotPage({
   xVariable,
   yVariable,
   settings,
