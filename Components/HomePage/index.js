@@ -18,6 +18,20 @@ export default function HomePage() {
 
   return (
     <>
+      <Container $centered="center">
+      {(screen.width < 350) && (
+        <dialog open>
+          <Paragraph $variant="bold">WARNING!</Paragraph>  
+          <Paragraph>The screen size width of your device may be too small for a comfortable display!</Paragraph>  
+          <form method="dialog">
+            <Container $centered="center">
+              <Button $variant="back">OK!</Button>
+            </Container>
+          </form>
+        </dialog>
+       )
+      }  
+      </Container>
       <Paragraph>
         With PlotData you can easily make customisable publication-quality
         charts, all without programming skills.
