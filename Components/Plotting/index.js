@@ -143,8 +143,12 @@ export default function Plotting({
                 },
                 xaxis: xAxisOptions,
                 yaxis: yAxisOptions,
-                width: 500,
-                height: 400, 
+                width: screen.width >= 500 
+                ? 500
+                : 350, 
+                height: screen.width >= 500
+                ? 400
+                : 250,
                 margin: {
                   t: 50,
                   b: 50,
