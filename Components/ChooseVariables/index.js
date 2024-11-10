@@ -19,14 +19,27 @@ export default function ChooseVariables({
     event.preventDefault();
   }
 
-  if (xKey === yKey && xKey !== "") {
+  /*if (xKey === yKey && xKey !== "") {
     alert(
       "Are you sure you want to use the same variable for x as for y? It would give a meaningless plot."
     );
-  }
+  } */
 
   return (
     <>
+    <Container $centered="center">
+      {(xKey === yKey && xKey !== "") && (
+        <dialog open>
+          <Paragraph $variant="bold">WARNING!</Paragraph>  
+          <Paragraph>Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!</Paragraph>  
+          <form method="dialog">
+            <Container $centered="center">
+              <Button $variant="back">OK!</Button>
+            </Container>
+          </form>
+        </dialog>)
+      }
+    </Container>  
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
