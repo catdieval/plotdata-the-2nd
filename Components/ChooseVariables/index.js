@@ -19,12 +19,6 @@ export default function ChooseVariables({
     event.preventDefault();
   }
 
-  /*if (xKey === yKey && xKey !== "") {
-    alert(
-      "Are you sure you want to use the same variable for x as for y? It would give a meaningless plot."
-    );
-  } */
-
   return (
     <>
     <Container $centered="center">
