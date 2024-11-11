@@ -4,7 +4,7 @@ import Container from "../Container";
 import FileUploader from "../FileUploader";
 import InputTypeSubmit from "../InputTypeSubmit";
 import {ButtonContainer} from "../Navigation/styledNavigation";
-import Button from "../Button";
+import WarningMessage from "../WarningMessage";
 
 export default function UploadData({ 
   onDisableNextButton, 
@@ -22,17 +22,11 @@ export default function UploadData({
   return (
     <>
       <Container $centered="center">
-      {((navigator.userAgent.match(/Android/i)) != null) && (
-        <dialog open>
-          <Paragraph $variant="bold">WARNING!</Paragraph>  
-          <Paragraph>On Android devices, the file upload window allows in error all file types, instead of only csv files!</Paragraph>  
-            <form method="dialog">
-             <Container $centered="center">
-               <Button $variant="back">OK, I will select only a csv file!</Button>
-             </Container>
-            </form>
-        </dialog>
-      )}
+      {((navigator.userAgent.match(/Android/i)) != null) && 
+      <WarningMessage 
+        buttonMessage="OK, I will select only a csv file!"
+        message="On Android devices, the file upload window allows in error all file types, instead of only csv files!"
+      />}
       </Container>
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
@@ -45,17 +39,11 @@ export default function UploadData({
           separator for numbers should be a period (.).
         </Paragraph>
         <Container $centered="center">
-          {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && (
-            <dialog open>
-              <Paragraph $variant="bold">WARNING!</Paragraph>  
-              <Paragraph>The file format is wrong! You must select a csv file in order to continue!</Paragraph>  
-                <form method="dialog">
-                  <Container $centered="center">
-                    <Button $variant="back">OK, I will select only a csv file!</Button>
-                  </Container>
-                </form>
-            </dialog>
-          )}
+          {((fileObject != null) && ((fileName.slice(-4)) == ".csv")) && 
+            <WarningMessage 
+              buttonMessage="OK, I will select only a csv file!"
+              message="The file format is wrong! You must select a csv file in order to continue!"
+            />}
         </Container>
         <Paragraph $variant="start">
           <span> ✔ </span> If the file contains missing values, then replace
