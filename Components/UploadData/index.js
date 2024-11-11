@@ -32,6 +32,17 @@ export default function UploadData({
             </form>
         </dialog>
       )}
+      {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && (
+        <dialog open>
+          <Paragraph $variant="bold">WARNING!</Paragraph>  
+          <Paragraph>The file format is wrong! You must select a csv file in order to continue!</Paragraph>  
+          <form method="dialog">
+           <Container $centered="center">
+             <Button $variant="back">OK, I will select only a csv file!</Button>
+           </Container>
+          </form>
+      </dialog>
+      )}
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
         <Paragraph $variant="start">
