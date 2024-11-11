@@ -1,4 +1,5 @@
-import UploadData from "../UploadData";
+import dynamic from 'next/dynamic';
+const UploadData = dynamic(() => import("../UploadData"), {ssr: false})
 import ListOfCharts from "../ListOfCharts";
 import ChooseVariables from "../ChooseVariables";
 import XandYLabelsGraph from "../XandYLabelsGraph";

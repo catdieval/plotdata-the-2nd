@@ -34,6 +34,7 @@ const Container = styled.section`
       margin: ${(props) => (props.$margin ? "30px" : "0")};
       margin-bottom: ${(props) => (props.$margin_bottom ? "30px" : "0")};
       margin-top: ${(props) => (props.$margin_top ? "30px" : "0")};
+      //justify-content: ${(props) => (props.$center_screen ? "center" : "start")};
     `};
 
   ${(props) =>
