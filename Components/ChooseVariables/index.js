@@ -21,8 +21,8 @@ export default function ChooseVariables({
 
   return (
     <>
-    <Container $centered="center">
-      {(xKey === yKey && xKey !== "") && (
+      <Container $centered="center">
+        {(xKey === yKey && xKey !== "") && (
         <dialog open>
           <Paragraph $variant="bold">WARNING!</Paragraph>  
           <Paragraph>Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!</Paragraph>  
@@ -31,9 +31,9 @@ export default function ChooseVariables({
               <Button $variant="back">OK!</Button>
             </Container>
           </form>
-        </dialog>)
-      }
-    </Container>  
+        </dialog>
+        )}
+      </Container>  
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
