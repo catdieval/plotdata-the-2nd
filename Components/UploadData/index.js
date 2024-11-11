@@ -4,6 +4,7 @@ import Container from "../Container";
 import FileUploader from "../FileUploader";
 import InputTypeSubmit from "../InputTypeSubmit";
 import {ButtonContainer} from "../Navigation/styledNavigation";
+import Button from "../Button";
 
 export default function UploadData({ 
   onDisableNextButton, 
@@ -20,6 +21,17 @@ export default function UploadData({
 
   return (
     <>
+      {((navigator.userAgent.match(/Android/i)) != null) && (
+        <dialog open>
+          <Paragraph $variant="bold">WARNING!</Paragraph>  
+          <Paragraph>On Android devices, the file upload window allows in error all file types, instead of only csv files!</Paragraph>  
+            <form method="dialog">
+             <Container $centered="center">
+               <Button $variant="back">OK, I will select only a csv file!</Button>
+             </Container>
+            </form>
+        </dialog>
+      )}
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
         <Paragraph $variant="start">
