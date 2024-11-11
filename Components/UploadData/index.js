@@ -33,17 +33,6 @@ export default function UploadData({
             </form>
         </dialog>
       )}
-      {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && (
-        <dialog open>
-          <Paragraph $variant="bold">WARNING!</Paragraph>  
-          <Paragraph>The file format is wrong! You must select a csv file in order to continue!</Paragraph>  
-          <form method="dialog">
-           <Container $centered="center">
-             <Button $variant="back">OK, I will select only a csv file!</Button>
-           </Container>
-          </form>
-      </dialog>
-      )}
       </Container>
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
@@ -60,6 +49,19 @@ export default function UploadData({
           these values in the file by null.
         </Paragraph>
       </Card>
+      <Container $centered="center" $center_screen>
+      {((fileObject != null) && ((fileName.slice(-4)) == ".csv")) && (
+        <dialog open>
+          <Paragraph $variant="bold">WARNING!</Paragraph>  
+          <Paragraph>The file format is wrong! You must select a csv file in order to continue!</Paragraph>  
+          <form method="dialog">
+           <Container $centered="center">
+             <Button $variant="back">OK, I will select only a csv file!</Button>
+           </Container>
+          </form>
+      </dialog>
+      )}
+      </Container>
       <form onSubmit={handleSubmit}>
         <Container $centered="center">
           <FileUploader onUploadFile={onUploadFile} />
