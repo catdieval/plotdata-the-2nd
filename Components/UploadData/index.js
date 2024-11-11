@@ -36,6 +36,14 @@ export default function UploadData({
       </Container>
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
+        <Paragraph $variant="start">
+          <span> ✔ </span> The file should have a header and a maximum size of
+          4GB.
+        </Paragraph>
+        <Paragraph $variant="start">
+          <span> ✔ </span>The file should be comma-delimited and the decimal
+          separator for numbers should be a period (.).
+        </Paragraph>
         <Container $centered="center">
           {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && (
             <dialog open>
@@ -49,14 +57,6 @@ export default function UploadData({
             </dialog>
           )}
         </Container>
-        <Paragraph $variant="start">
-          <span> ✔ </span> The file should have a header and a maximum size of
-          4GB.
-        </Paragraph>
-        <Paragraph $variant="start">
-          <span> ✔ </span>The file should be comma-delimited and the decimal
-          separator for numbers should be a period (.).
-        </Paragraph>
         <Paragraph $variant="start">
           <span> ✔ </span> If the file contains missing values, then replace
           these values in the file by null.
