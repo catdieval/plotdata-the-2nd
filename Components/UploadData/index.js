@@ -28,7 +28,7 @@ export default function UploadData({
           <Paragraph>On Android devices, the file upload window allows in error all file types, instead of only csv files!</Paragraph>  
             <form method="dialog">
              <Container $centered="center">
-               <Button $variant="back" $dialog>OK, I will select only a csv file!</Button>
+               <Button $variant="back">OK, I will select only a csv file!</Button>
              </Container>
             </form>
         </dialog>
@@ -56,7 +56,7 @@ export default function UploadData({
           <Paragraph>The file format is wrong! You must select a csv file in order to continue!</Paragraph>  
           <form method="dialog">
            <Container $centered="center">
-             <Button $variant="back" $dialog>OK, I will select only a csv file!</Button>
+             <Button $variant="back">OK, I will select only a csv file!</Button>
            </Container>
           </form>
       </dialog>
