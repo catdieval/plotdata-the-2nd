@@ -21,7 +21,7 @@ export default function UploadData({
 
   return (
     <>
-      {((navigator.userAgent.match(/Mozilla/i)) != null) && (
+      {((navigator.userAgent.match(/Android/i)) != null) && (
         <dialog open>
           <Paragraph $variant="bold">WARNING!</Paragraph>  
           <Paragraph>On Android devices, the file upload window allows in error all file types, instead of only csv files!</Paragraph>  
