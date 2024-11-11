@@ -25,7 +25,10 @@ export default createGlobalStyle`
 
   body {
     background-color:var(--neutral-color);
-    font-family: ${plotDataFont.style.fontFamily};
-    
+    font-family: ${plotDataFont.style.fontFamily};  
+  }
+
+  dialog {
+    background-color: pink;
   }
 `;
