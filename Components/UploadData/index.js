@@ -21,6 +21,7 @@ export default function UploadData({
 
   return (
     <>
+      <Container $centered="center">
       {((navigator.userAgent.match(/Android/i)) != null) && (
         <dialog open>
           <Paragraph $variant="bold">WARNING!</Paragraph>  
@@ -43,6 +44,7 @@ export default function UploadData({
           </form>
       </dialog>
       )}
+      </Container>
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
         <Paragraph $variant="start">
