@@ -35,7 +35,7 @@ const StyledButton = styled.button`
   ${(props) =>
     props.$variant === "back" &&
     css`
-      background-color: inherit;
+      background-color: ${(props) => (props.$dialog ? "pink" : "white")}; //inherit;
       border: solid 2px var(--primary-color);
       color: var(--primary-color);
       padding: 8px 18px;

@@ -28,7 +28,7 @@ export default function ChooseVariables({
           <Paragraph>Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!</Paragraph>  
           <form method="dialog">
             <Container $centered="center">
-              <Button $variant="back">OK!</Button>
+              <Button $variant="back" $dialog>OK!</Button>
             </Container>
           </form>
         </dialog>)
