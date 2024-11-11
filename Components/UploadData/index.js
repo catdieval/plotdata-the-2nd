@@ -39,7 +39,7 @@ export default function UploadData({
           separator for numbers should be a period (.).
         </Paragraph>
         <Container $centered="center">
-          {((fileObject != null) && ((fileName.slice(-4)) == ".csv")) && 
+          {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && 
             <WarningMessage 
               buttonMessage="OK, I will select only a csv file!"
               message="The file format is wrong! You must select a csv file in order to continue!"
