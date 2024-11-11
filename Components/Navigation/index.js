@@ -75,11 +75,15 @@ export default function Navigation({
     (settings.rangeYAxis === "min max" && (!settings.minYAxis || !settings.maxYAxis)) 
   );
 
+  const fileName = fileObject?.name;
+
+  const hasNotEnteredCorrectInputStep1 = ((!fileObject) || ((fileName.slice(-4)) != ".csv"));
+
   /* This function serves to disable the "Next" button if the user has not made all inputs for the
   current step */
   function handleDisableNextButton() {
     if (currentStep === 1) {
-      return !fileObject;
+      return hasNotEnteredCorrectInputStep1; 
     } else if (currentStep === 2) {
       return !clickedChartType;
     } else if (currentStep === 3) {
