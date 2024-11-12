@@ -1,7 +1,6 @@
 import GlobalStyle from "../styles";
 import Layout from "../Components/Layout";
 import { useState } from "react";
-import CorrectArrays from "../Components/CorrectArrays";
 import ConvertCSVToArray from "../Components/ConvertCSVToArray";
 
 export default function App({ Component, pageProps }) {
@@ -76,11 +75,10 @@ export default function App({ Component, pageProps }) {
         separator: ",",
       });
 
-      // The output of the convertCSVToArray function needs further processing
-      const [keys, ...correctValues] = CorrectArrays(arrayOfObjects);
+      const [keys, ...values] = arrayOfObjects;
 
       setKeynames(keys);
-      setVals(correctValues);
+      setVals(values);
     };
 
     reader.readAsText(fileObject);
