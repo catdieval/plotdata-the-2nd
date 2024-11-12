@@ -39,7 +39,12 @@ export default function UploadData({
           <span> ✔ </span>The file should be comma-delimited and the decimal
           separator for numbers should be a period (.).
         </Paragraph>
-        {((fileObject != null) && ((fileName.slice(-4)) != ".csv")) && (
+        <Paragraph $variant="start">
+          <span> ✔ </span> If the file contains missing values, then replace
+          these values in the file by null.
+        </Paragraph>
+      </Card>
+      {((fileObject != null) && ((fileName.slice(-4)) == ".csv")) && (
           <Container $centered="center">
             <WarningMessage 
               buttonMessage="OK, I will select only a csv file!"
@@ -47,13 +52,12 @@ export default function UploadData({
             />
           </Container>
         )}
-        <Paragraph $variant="start">
-          <span> ✔ </span> If the file contains missing values, then replace
-          these values in the file by null.
-        </Paragraph>
-      </Card>
       <form onSubmit={handleSubmit}>
         <Container $centered="center">
+          <WarningMessage
+            buttonMessage="I have understood!"
+            message="If these file requirements are not respected, you may get unexpected results and a chart may not be possible!"
+          />
           <FileUploader onUploadFile={onUploadFile} />
           {fileName ? <p>Uploaded file: {fileName}</p> : <p>No file chosen</p>}
         </Container>
