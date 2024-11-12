@@ -39,10 +39,6 @@ export default function UploadData({
           <span> ✔ </span>The file should be comma-delimited and the decimal
           separator for numbers should be a period (.).
         </Paragraph>
-        <Paragraph $variant="start">
-          <span> ✔ </span> If the file contains missing values, then replace
-          these values in the file by null.
-        </Paragraph>
       </Card>
       {((fileObject != null) && ((fileName.slice(-4)) == ".csv")) && (
           <Container $centered="center">
