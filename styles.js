@@ -30,5 +30,7 @@ export default createGlobalStyle`
 
   dialog {
     background-color: pink;
+    position: absolute;
+    z-index: 10;
   }
 `;
