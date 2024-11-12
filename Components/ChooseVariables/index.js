@@ -22,13 +22,14 @@ export default function ChooseVariables({
 
   return (
     <>
-      <Container $centered="center">
-        {(xKey === yKey && xKey !== "") && 
-        <WarningMessage 
-          buttonMessage="OK!"
-          message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
-        />}
-      </Container>  
+      {(xKey === yKey && xKey !== "") && (
+        <Container $centered="center">
+          <WarningMessage 
+            buttonMessage="OK!"
+            message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
+          />
+        </Container>
+      )}
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
