@@ -14,7 +14,4 @@ export default function ConvertCSVToArray(data, { header, separator } = {}) {
   } catch (error) {
     return ([]);
   } 
-  //checkIfValid(data, thisOptions);
-
-  //return convertCSVToArrayOfObjects(data, thisOptions); 
 }
