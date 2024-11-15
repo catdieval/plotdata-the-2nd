@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const StyledInputTypeSubmit = styled.input.attrs({
     type: "submit",
   })`
-    background-color: var(--secondary-color);
+    background-color: ${(props) =>
+    props.$submitOnly ? "var(--primary-color)" : "var(--secondary-color)"};
     padding: 10px 20px;
     color: white;
     border-radius: 12px;
