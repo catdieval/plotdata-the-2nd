@@ -16,6 +16,8 @@ export default function OneStepAtATime({
   onUploadFile,
   onConversion,
   keynames,
+  vals,
+  onAssignVariables,
   clickedChartType,
   onSelectChartType,
   onXChange,
@@ -36,6 +38,8 @@ export default function OneStepAtATime({
         fileObject={fileObject}
         onUploadFile={onUploadFile}
         onConversion={onConversion}
+        keynames={keynames}
+        vals={vals}
       />
     );
   } else if (currentStep === 2 && id === 2) {
@@ -55,10 +59,13 @@ export default function OneStepAtATime({
         onNext={onNext}
         onBack={onBack}
         keynames={keynames}
+        onAssignVariables={onAssignVariables}
         onXChange={onXChange}
         onYChange={onYChange}
         xKey={xKey}
         yKey={yKey}
+        xVariable={xVariable}
+        yVariable={yVariable}
       />
     );
   } else if (currentStep === 4 && id === 4) {
