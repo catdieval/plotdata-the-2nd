@@ -15,6 +15,7 @@ export default function UploadData({
   onUploadFile, 
   keynames,
   vals,
+  currentStep,
 }) {
   // Name of file
   const fileName = fileObject?.name;
@@ -95,6 +96,7 @@ export default function UploadData({
               valueString="Submit my data"
               onClick={onConversion}
               disabled={onDisableNextButton}
+              $submitOnly={currentStep === 1}
             />
           </ButtonContainer>
           {((keynames?.length >= 1) && (vals?.length >= 1)) &&  
