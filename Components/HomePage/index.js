@@ -58,7 +58,7 @@ export default function HomePage() {
           You can find <a href="https://catdieval.github.io/" target="_blank">here</a> a CSV file for testing the process.
         </Paragraph>
         <Container $centered="center" $margin $margin_bottom>
-          <Button onClick={handleGetStarted}>Get started</Button>
+          <Button onClick={handleGetStarted} $variant="plot">Get started</Button>
         </Container>
       </Container>
     </>
