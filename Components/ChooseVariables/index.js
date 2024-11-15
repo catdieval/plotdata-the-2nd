@@ -11,24 +11,24 @@ export default function ChooseVariables({
   onNext, 
   onBack,
   keynames,
+  onAssignVariables,
   onXChange,
   onYChange,
   xKey,
   yKey,
+  xVariable,
+  yVariable,
+  currentStep,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
   }
 
+  const hasNotCompletedStep3 = ((xKey.length === 0 || yKey.length === 0) ||
+  ((xVariable.length < 1) && (yVariable.length < 1))); 
+
   return (
     <>
-      <Container $centered="center">
-        {(xKey === yKey && xKey !== "") && 
-        <WarningMessage 
-          buttonMessage="OK!"
-          message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
-        />}
-      </Container>  
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
@@ -43,16 +43,38 @@ export default function ChooseVariables({
             onChange={onYChange}
             arrayOfOptions={keynames}
           />
+          <br/>
+          {(xKey === yKey && xKey !== "") && (
+            <Container $centered="center">
+              <WarningMessage 
+                buttonMessage="OK!"
+                message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
+             />
+            </Container>
+          )}
+          <ButtonContainer>
+            <InputTypeSubmit
+              valueString="Assign my variables"
+              onClick={onAssignVariables}
+              disabled={onDisableNextButton}
+              $submitOnly={currentStep === 3}
+            />
+          </ButtonContainer>
+          {((xVariable.length >= 1) && (yVariable.length >= 1)) && 
+            <Paragraph>Variables assigned!</Paragraph>
+          }
         </Container>
         <ButtonContainer>
           <Button $variant="back" onClick={onBack}>
             Back
           </Button>
-          <InputTypeSubmit
-            valueString="Next"
+          <Button
             onClick={onNext}
-            disabled={onDisableNextButton}
-          />  
+            disabled={hasNotCompletedStep3}
+            $variant="next"
+          >
+            Next
+          </Button>
         </ButtonContainer>
       </form>
     </>

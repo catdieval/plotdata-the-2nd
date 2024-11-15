@@ -1,7 +1,6 @@
 import GlobalStyle from "../styles";
 import Layout from "../Components/Layout";
 import { useState } from "react";
-import CorrectArrays from "../Components/CorrectArrays";
 import ConvertCSVToArray from "../Components/ConvertCSVToArray";
 
 export default function App({ Component, pageProps }) {
@@ -76,11 +75,12 @@ export default function App({ Component, pageProps }) {
         separator: ",",
       });
 
-      // The output of the convertCSVToArray function needs further processing
-      const [keys, ...correctValues] = CorrectArrays(arrayOfObjects);
+      if (Array.isArray(arrayOfObjects)) {
+        const [keys, ...values] = arrayOfObjects;
 
-      setKeynames(keys);
-      setVals(correctValues);
+        setKeynames(keys);
+        setVals(values);
+      } 
     };
 
     reader.readAsText(fileObject);
@@ -138,11 +138,6 @@ export default function App({ Component, pageProps }) {
   increments the current step by 1
   */
   function handleNext() {
-    if (currentStep === 1) {
-      handleConversion();
-    } else if (currentStep === 3) {
-      handleAssignVariables();
-    } 
     trackClickedSteps(currentStep);
     setCurrentStep(currentStep + 1);
   }
@@ -164,6 +159,7 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         keynames={keynames}
+        vals={vals}
         fileObject={fileObject}
         onUploadFile={handleUploadFile}
         onConversion={handleConversion}

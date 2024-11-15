@@ -19,13 +19,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Container $centered="center">
-        {(screen.width < 350) && 
-        <WarningMessage 
-          buttonMessage="OK!"
-          message="The screen size width of your device may be too small for a comfortable display!"
-        />}  
-      </Container>
+      {(screen.width < 350) && (
+        <Container $centered="center">
+          <WarningMessage 
+            buttonMessage="OK!"
+            message="The screen size width of your device may be too small for a comfortable display!"
+          />
+        </Container>
+      )}  
       <Paragraph>
         With PlotData you can easily make customisable publication-quality
         charts, all without programming skills.
@@ -57,7 +58,7 @@ export default function HomePage() {
           You can find <a href="https://catdieval.github.io/" target="_blank">here</a> a CSV file for testing the process.
         </Paragraph>
         <Container $centered="center" $margin $margin_bottom>
-          <Button onClick={handleGetStarted}>Get started</Button>
+          <Button onClick={handleGetStarted} $variant="plot">Get started</Button>
         </Container>
       </Container>
     </>

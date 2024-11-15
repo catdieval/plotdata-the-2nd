@@ -24,7 +24,7 @@ export default function FileUploader({ onUploadFile }) {
 
   return (
     <>
-      <Button onClick={handleClick}>Choose a file</Button>
+      <Button onClick={handleClick} $variant="plot">Choose a file</Button>
       <StyledInput
         type="file"
         accept=".csv"

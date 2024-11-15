@@ -1,4 +1,4 @@
-import { StyledInput } from "./styledInputTypeText";
+import { StyledInputText } from "./styledInputTypeText";
 
 export default function InputTypeText({
   placeholderString,
@@ -9,7 +9,7 @@ export default function InputTypeText({
   return (
     <>
       <label htmlFor={idString}>{idString}:</label>
-      <StyledInput
+      <StyledInputText
         name={nameString}
         type="text"
         id={idString}

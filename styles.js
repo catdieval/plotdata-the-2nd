@@ -24,11 +24,13 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color:var(--neutral-color);
+    background-color: var(--neutral-color);
     font-family: ${plotDataFont.style.fontFamily};  
   }
 
   dialog {
-    background-color: pink;
+    background-color: lightgoldenrodyellow;
+    position: absolute;
+    z-index: 10;
   }
 `;

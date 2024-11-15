@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.input.attrs({
+export const StyledInputText = styled.input.attrs({
   type: "text",
 })`
   width: 80%;
