@@ -10,6 +10,7 @@ export default function Steps({
   onUploadFile,
   onConversion,
   keynames,
+  vals,
   onSelectChartType,
   clickedChartType,
   onXChange,
@@ -44,6 +45,7 @@ export default function Steps({
         settings={settings}
         onSettingsChange={onSettingsChange}
         keynames={keynames}
+        vals={vals}
         clickedSteps={clickedSteps}
       />
     </>
