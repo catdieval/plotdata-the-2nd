@@ -81,10 +81,6 @@ export default function App({ Component, pageProps }) {
         setKeynames(keys);
         setVals(values);
       } 
-      /*const [keys, ...values] = arrayOfObjects;
-
-      setKeynames(keys);
-      setVals(values); */
     };
 
     reader.readAsText(fileObject);
@@ -142,11 +138,6 @@ export default function App({ Component, pageProps }) {
   increments the current step by 1
   */
   function handleNext() {
-    /*if (currentStep === 1) {
-      handleConversion();
-    } else if (currentStep === 3) {
-      handleAssignVariables();
-    } */
     trackClickedSteps(currentStep);
     setCurrentStep(currentStep + 1);
   }
@@ -161,8 +152,6 @@ export default function App({ Component, pageProps }) {
   function handleClickStepper(step) {
     setCurrentStep(step);
   }
-
-
 
   return (
     <Layout>
