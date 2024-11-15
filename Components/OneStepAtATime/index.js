@@ -40,6 +40,7 @@ export default function OneStepAtATime({
         onConversion={onConversion}
         keynames={keynames}
         vals={vals}
+        currentStep={currentStep}
       />
     );
   } else if (currentStep === 2 && id === 2) {
@@ -66,6 +67,7 @@ export default function OneStepAtATime({
         yKey={yKey}
         xVariable={xVariable}
         yVariable={yVariable}
+        currentStep={currentStep}
       />
     );
   } else if (currentStep === 4 && id === 4) {
