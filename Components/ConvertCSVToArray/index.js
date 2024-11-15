@@ -7,7 +7,14 @@ export default function ConvertCSVToArray(data, { header, separator } = {}) {
     separator: separator || ",",
   };
 
-  checkIfValid(data, thisOptions);
+  try {
+    checkIfValid(data, thisOptions);
+    return convertCSVToArrayOfObjects(data, thisOptions); 
 
-  return convertCSVToArrayOfObjects(data, thisOptions);
+  } catch (error) {
+    return ([]);
+  } 
+  //checkIfValid(data, thisOptions);
+
+  //return convertCSVToArrayOfObjects(data, thisOptions); 
 }
