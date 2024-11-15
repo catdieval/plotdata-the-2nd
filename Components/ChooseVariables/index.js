@@ -18,6 +18,7 @@ export default function ChooseVariables({
   yKey,
   xVariable,
   yVariable,
+  currentStep,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -28,7 +29,6 @@ export default function ChooseVariables({
 
   return (
     <>
-      
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
@@ -57,6 +57,7 @@ export default function ChooseVariables({
               valueString="Assign my variables"
               onClick={onAssignVariables}
               disabled={onDisableNextButton}
+              $submitOnly={currentStep === 3}
             />
           </ButtonContainer>
           {((xVariable.length >= 1) && (yVariable.length >= 1)) && 
