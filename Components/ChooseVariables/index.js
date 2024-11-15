@@ -28,14 +28,7 @@ export default function ChooseVariables({
 
   return (
     <>
-      {(xKey === yKey && xKey !== "") && (
-        <Container $centered="center">
-          <WarningMessage 
-            buttonMessage="OK!"
-            message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
-          />
-        </Container>
-      )}
+      
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom> 
           <Paragraph $variant="start">Variable for the x-axis:</Paragraph>
@@ -51,6 +44,14 @@ export default function ChooseVariables({
             arrayOfOptions={keynames}
           />
           <br/>
+          {(xKey === yKey && xKey !== "") && (
+            <Container $centered="center">
+              <WarningMessage 
+                buttonMessage="OK!"
+                message="Are you sure you want to use the same variable for x as for y? It would give a meaningless plot!"
+             />
+            </Container>
+          )}
           <ButtonContainer>
             <InputTypeSubmit
               valueString="Assign my variables"
