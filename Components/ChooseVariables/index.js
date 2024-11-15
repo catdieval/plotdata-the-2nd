@@ -11,14 +11,20 @@ export default function ChooseVariables({
   onNext, 
   onBack,
   keynames,
+  onAssignVariables,
   onXChange,
   onYChange,
   xKey,
   yKey,
+  xVariable,
+  yVariable,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
   }
+
+  const hasNotCompletedStep3 = ((xKey.length === 0 || yKey.length === 0) ||
+  ((xVariable.length < 1) && (yVariable.length < 1))); 
 
   return (
     <>
@@ -44,16 +50,29 @@ export default function ChooseVariables({
             onChange={onYChange}
             arrayOfOptions={keynames}
           />
+          <br/>
+          <ButtonContainer>
+            <InputTypeSubmit
+              valueString="Assign my variables"
+              onClick={onAssignVariables}
+              disabled={onDisableNextButton}
+            />
+          </ButtonContainer>
+          {((xVariable.length >= 1) && (yVariable.length >= 1)) && 
+            <Paragraph>Variables assigned!</Paragraph>
+          }
         </Container>
         <ButtonContainer>
           <Button $variant="back" onClick={onBack}>
             Back
           </Button>
-          <InputTypeSubmit
-            valueString="Next"
+          <Button
             onClick={onNext}
-            disabled={onDisableNextButton}
-          />  
+            disabled={hasNotCompletedStep3}
+            $variant="next"
+          >
+            Next
+          </Button>
         </ButtonContainer>
       </form>
     </>
