@@ -35,10 +35,6 @@ export default function Navigation({
 }) {
   const router = useRouter();
 
-  // Destructuring id from arrayOfSteps corresponding to step 6.
-  const { id } = arrayOfSteps[5];
-  const idStep6 = id;
-
   // This function redirects the user to the page with the chart
   function handlePlotNavigation() {
     router.push("/plot");
@@ -51,9 +47,10 @@ export default function Navigation({
 
   const hasNotEnteredMarkerProperties = (!settings.markerColor || !settings.markerSymbol || !settings.markerSize);
   const hasNotEnteredLineProperties = (!settings.lineColor || !settings.lineStyle || !settings.lineWidth);
+  const hasNotEnteredBarProperties = !settings.barColor;
 
   const hasNotEnteredInputsStep6 = (
-    ((clickedChartType === "bar-plot" && !settings.barColor) || 
+    ((clickedChartType === "bar-plot" && hasNotEnteredBarProperties) || 
      (clickedChartType === "scatter-plot" && hasNotEnteredMarkerProperties) ||
      (clickedChartType === "line-plot" && hasNotEnteredLineProperties) || 
      (clickedChartType === "line-markers-plot" && (hasNotEnteredLineProperties || hasNotEnteredMarkerProperties))) ||
@@ -126,6 +123,7 @@ export default function Navigation({
               </SingleStepContainer>
               <OneStepAtATime
                 currentStep={currentStep}
+                clickedSteps={clickedSteps}
                 id={id}
                 onDisableNextButton={handleDisableNextButton()}
                 onNext={onNext}
@@ -146,6 +144,9 @@ export default function Navigation({
                 yVariable={yVariable}
                 settings={settings}
                 onSettingsChange={onSettingsChange}
+                hasNotEnteredBarProperties={hasNotEnteredBarProperties}
+                hasNotEnteredLineProperties={hasNotEnteredLineProperties}
+                hasNotEnteredMarkerProperties={hasNotEnteredMarkerProperties}
               />
             </StyledList>
           );
@@ -153,7 +154,7 @@ export default function Navigation({
         <ButtonContainer>
           { /* The "Plot" button is displayed only if the user has clicked the "Next" button 
             for step 6 */
-          clickedSteps.includes(idStep6) && (
+          clickedSteps.includes(6) && (
             <Button $variant="plot" onClick={handlePlotNavigation} disabled={handleDisablePlotButton()}>Plot</Button>
           )}
         </ButtonContainer>
