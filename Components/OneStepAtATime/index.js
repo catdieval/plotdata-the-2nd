@@ -8,6 +8,7 @@ import PlottingProperties from "../PlottingProperties";
 
 export default function OneStepAtATime({
   currentStep,
+  clickedSteps,
   id,
   onDisableNextButton,
   onNext,
@@ -28,6 +29,9 @@ export default function OneStepAtATime({
   yVariable,
   settings,
   onSettingsChange,
+  hasNotEnteredBarProperties,
+  hasNotEnteredLineProperties,
+  hasNotEnteredMarkerProperties,
 }) {  
   // Displays UploadData only when the current step is step 1 and nothing for the other steps
   if (currentStep === 1 && id === 1) {
@@ -51,6 +55,10 @@ export default function OneStepAtATime({
         onBack={onBack}
         onSelectChartType={onSelectChartType}
         clickedChartType={clickedChartType}
+        hasNotEnteredBarProperties={hasNotEnteredBarProperties}
+        hasNotEnteredLineProperties={hasNotEnteredLineProperties}
+        hasNotEnteredMarkerProperties={hasNotEnteredMarkerProperties}
+        clickedSteps={clickedSteps}
       />
     );
   } else if (currentStep === 3 && id === 3) {
