@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   
   // Step 1: Upload CSV-file
   // State to store keys from the CSV file
-  const [keynames, setKeynames] = useState([]);
+  const [keyNames, setKeyNames] = useState([]);
 
   // State to store the values
   const [vals, setVals] = useState([]);
@@ -65,7 +65,7 @@ export default function App({ Component, pageProps }) {
 
   function handleUploadFile(file) {
     setFileObject(file);
-    setKeynames([]);
+    setKeyNames([]);
     setVals([]);
   }
 
@@ -80,7 +80,7 @@ export default function App({ Component, pageProps }) {
       if (Array.isArray(arrayOfObjects)) {
         const [keys, ...values] = arrayOfObjects;
 
-        setKeynames(keys);
+        setKeyNames(keys);
         setVals(values);
       } 
     };
@@ -162,7 +162,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        keynames={keynames}
+        keyNames={keyNames}
         vals={vals}
         fileObject={fileObject}
         onUploadFile={handleUploadFile}
