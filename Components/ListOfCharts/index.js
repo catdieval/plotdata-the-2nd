@@ -53,7 +53,7 @@ export default function ListOfCharts({
           <Container $centered="center">
             <WarningMessage 
               buttonMessage="OK, I have understood!"
-              message={"You have changed to a type of chart, whose properties are not yet set! In order to continue with this chart, go to Step 6 to choose new chart properties!"}
+              message="You have changed to a type of chart, whose properties are not yet set! In order to continue with this chart, go to Step 6 to choose new chart properties!"
             />
           </Container>
       ));
