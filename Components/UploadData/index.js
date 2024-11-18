@@ -39,15 +39,15 @@ export default function UploadData({
   (((keyNames?.length >= 1) && headerButNoDataTemp)));
 
   return (
-    <>
-        {((navigator.userAgent.match(/Android/i)) != null) && (
-          <Container $centered="center">
-            <WarningMessage 
-              buttonMessage="OK, I will select only a csv file!"
-              message="On Android devices, the file upload window allows in error all file types, instead of only csv files!"
-            />
-          </Container>
-        )}
+    <>  
+      {((navigator.userAgent.match(/Android/i)) != null) && (
+        <Container $centered="center">
+          <WarningMessage 
+            buttonMessage="OK, I will select only a csv file!"
+            message="On Android devices, the file upload window allows in error all file types, instead of only csv files!"
+          />
+        </Container>
+      )}
       <Card>
         <Paragraph $variant="bold">Requirements:</Paragraph>
         <Paragraph $variant="start">
