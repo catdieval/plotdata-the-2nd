@@ -65,6 +65,8 @@ export default function App({ Component, pageProps }) {
 
   function handleUploadFile(file) {
     setFileObject(file);
+    setKeynames([]);
+    setVals([]);
   }
 
   function handleConversion() {
@@ -92,10 +94,12 @@ export default function App({ Component, pageProps }) {
 
   function handleXChange(event) {
     setXKey(event.target.value);
+    setXVariable([]);
   }
 
   function handleYChange(event) {
     setYKey(event.target.value);
+    setYVariable([]);
   }
 
   function handleAssignVariables() {
