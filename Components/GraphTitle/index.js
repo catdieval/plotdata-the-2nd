@@ -17,10 +17,9 @@ export default function GraphTitle({
   }
   return (
     <>
-      <Paragraph>Label for the x-axis:</Paragraph>
-      <Paragraph $variant="bold">{settings.xLabel}</Paragraph>
-      <Paragraph>Label for the y-axis:</Paragraph>
-      <Paragraph $variant="bold">{settings.yLabel}</Paragraph>
+      <Paragraph>Label for the x-axis: <b>{settings.xLabel}</b></Paragraph>
+      <Paragraph>Label for the y-axis: <b>{settings.yLabel}</b></Paragraph>
+      <br />
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom>
           <InputTypeText
@@ -30,6 +29,12 @@ export default function GraphTitle({
             onChange={onSettingsChange}
           />
         </Container>
+        {(settings.titleLabel.length != 0) && (
+          <>
+            <Paragraph>Title: <b>{settings.titleLabel}</b></Paragraph>
+            <br />
+          </>
+        )}
         <ButtonContainer>
           <Button $variant="back" onClick={onBack}>
             Back
