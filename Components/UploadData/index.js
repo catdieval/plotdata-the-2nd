@@ -13,7 +13,7 @@ export default function UploadData({
   onConversion,
   fileObject, 
   onUploadFile, 
-  keynames,
+  keyNames,
   vals,
   currentStep,
 }) {
@@ -25,7 +25,7 @@ export default function UploadData({
   };
 
   function headerButNoData() {
-    if (keynames?.length >= 1) {
+    if (keyNames?.length >= 1) {
       return vals.length < 1;
     } else {
       return ([]);
@@ -35,8 +35,8 @@ export default function UploadData({
   const headerButNoDataTemp = headerButNoData();
 
   const hasNotCompletedStep1 = ((!fileObject) || 
-  (((keynames?.length === undefined) || (keynames?.length < 1))) ||
-  (((keynames?.length >= 1) && headerButNoDataTemp)));
+  (((keyNames?.length === undefined) || (keyNames?.length < 1))) ||
+  (((keyNames?.length >= 1) && headerButNoDataTemp)));
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function UploadData({
             />
           </Container>
         )}
-        {((fileObject != null) && ((Array.isArray(keynames)) == false)) && (
+        {((fileObject != null) && ((Array.isArray(keyNames)) == false)) && (
           <Container $centered="center">
             <WarningMessage 
               buttonMessage="OK, I will select another file!"
@@ -75,7 +75,7 @@ export default function UploadData({
             />
           </Container>
         )}
-        {(((keynames?.length >= 1) && headerButNoDataTemp)) && (
+        {(((keyNames?.length >= 1) && headerButNoDataTemp)) && (
           <Container $centered="center">
             <WarningMessage 
               buttonMessage="OK, I will select a file with both header and data!"
@@ -99,7 +99,7 @@ export default function UploadData({
               $submitOnly={currentStep === 1}
             />
           </ButtonContainer>
-          {((keynames?.length >= 1) && (vals?.length >= 1)) &&  
+          {((keyNames?.length >= 1) && (vals?.length >= 1)) &&  
             <Paragraph>File processed successfully!</Paragraph>
           }
         </Container>

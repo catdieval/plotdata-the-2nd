@@ -19,7 +19,7 @@ export default function Navigation({
   fileObject,
   onUploadFile,
   onConversion,
-  keynames,
+  keyNames,
   vals,
   onSelectChartType,
   clickedChartType,
@@ -128,7 +128,7 @@ export default function Navigation({
                 onDisableNextButton={handleDisableNextButton()}
                 onNext={onNext}
                 onBack={onBack}
-                keynames={keynames}
+                keyNames={keyNames}
                 vals={vals}
                 fileObject={fileObject}
                 onUploadFile={onUploadFile}

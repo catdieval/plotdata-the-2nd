@@ -10,7 +10,7 @@ export default function ChooseVariables({
   onDisableNextButton, 
   onNext, 
   onBack,
-  keynames,
+  keyNames,
   onAssignVariables,
   onXChange,
   onYChange,
@@ -35,13 +35,13 @@ export default function ChooseVariables({
           <DropDownMenu
             idString="x:"
             onChange={onXChange}
-            arrayOfOptions={keynames}
+            arrayOfOptions={keyNames}
           />
           <Paragraph $variant="start">Variable for the y-axis:</Paragraph>
           <DropDownMenu
             idString="y:"
             onChange={onYChange}
-            arrayOfOptions={keynames}
+            arrayOfOptions={keyNames}
           />
           <br/>
           {(xKey === yKey && xKey !== "") && (
