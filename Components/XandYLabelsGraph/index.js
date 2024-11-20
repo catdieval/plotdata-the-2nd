@@ -35,6 +35,7 @@ export default function XandYLabelsGraph({
             <Paragraph>x-axis label: <b>{settings.xLabel}</b></Paragraph>
           )}
           <br />
+          <br />
           <InputTypeText
             idString={"Label for the y-axis"}
             nameString="yLabel"
