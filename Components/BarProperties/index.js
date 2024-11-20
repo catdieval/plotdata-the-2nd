@@ -20,10 +20,7 @@ export default function BarProperties({
             arrayOfOptions={barColorArray}
           />
           {(settings.barColor.length != 0) && (
-            <>
-              <br />
-              <Paragraph>Bar color: <b>{settings.barColor}</b></Paragraph>
-            </>
+            <Paragraph>Bar color: <b>{settings.barColor}</b></Paragraph>
           )}
       </Container>
     </>
