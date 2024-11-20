@@ -17,8 +17,8 @@ export default function GraphTitle({
   }
   return (
     <>
-      <Paragraph>Label for the x-axis: <b>{settings.xLabel}</b></Paragraph>
-      <Paragraph>Label for the y-axis: <b>{settings.yLabel}</b></Paragraph>
+      <Paragraph>For the x-axis label you chose: <b>{settings.xLabel}</b></Paragraph>
+      <Paragraph>For the y-axis label you chose: <b>{settings.yLabel}</b></Paragraph>
       <br />
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom>
