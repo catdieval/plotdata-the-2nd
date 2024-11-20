@@ -28,13 +28,10 @@ export default function GraphTitle({
             placeholderString={"Fill me with a title"}
             onChange={onSettingsChange}
           />
-        </Container>
-        {(settings.titleLabel.length != 0) && (
-          <>
+          {(settings.titleLabel.length != 0) && (
             <Paragraph>Title: <b>{settings.titleLabel}</b></Paragraph>
-            <br />
-          </>
-        )}
+          )}
+        </Container>
         <ButtonContainer>
           <Button $variant="back" onClick={onBack}>
             Back
