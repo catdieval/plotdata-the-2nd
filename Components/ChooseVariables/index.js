@@ -41,6 +41,7 @@ export default function ChooseVariables({
             <Paragraph>x-axis variable: <b>{xKey}</b></Paragraph>
           )}
           <br />
+          <br />
           <Paragraph>Variable for the y-axis:</Paragraph>
           <DropDownMenu
             idString="y:"
