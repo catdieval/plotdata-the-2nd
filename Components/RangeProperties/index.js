@@ -14,66 +14,66 @@ export default function RangeProperties({
       </Container>
       <Container $wrap="wrap">
         <Container $direction="column" $center>
-        <Container $centered="center">
-          <Paragraph $variant="bold">Autorange for x-axis:</Paragraph>
-          <Container $direction="column" $gap>
-            <InputTypeRadio
-              nameString="rangeXAxis"
-              valueString="true"
-              idString="normal range X"
-              onChange={onSettingsChange}
-              labelString="yes, normal range"
-            />
-            <InputTypeRadio
-              nameString="rangeXAxis"
-              valueString="reversed"
-              idString="reversed range X"
-              onChange={onSettingsChange}
-              labelString="yes, reversed range"
-            />
-            <InputTypeRadio
-              nameString="rangeXAxis"
-              valueString="min max"
-              idString="min max X"
-              onChange={onSettingsChange}
-              labelString="no, set minimum and maximum"
-            />
+          <Container $centered="center">
+            <Paragraph $variant="bold">Autorange for x-axis:</Paragraph>
+            <Container $direction="column" $gap>
+              <InputTypeRadio
+                nameString="rangeXAxis"
+                valueString="true"
+                idString="normal range X"
+                onChange={onSettingsChange}
+                labelString="yes, normal range"
+              />
+              <InputTypeRadio
+                nameString="rangeXAxis"
+                valueString="reversed"
+                idString="reversed range X"
+                onChange={onSettingsChange}
+                labelString="yes, reversed range"
+              />
+              <InputTypeRadio
+                nameString="rangeXAxis"
+                valueString="min max"
+                idString="min max X"
+                onChange={onSettingsChange}
+                labelString="no, set minimum and maximum"
+              />
+            </Container>
           </Container>
-        </Container>
-        {(settings.rangeXAxis.length != 0) && (
+          {(settings.rangeXAxis.length != 0) && (
             <Paragraph>x-axis autorange: <b>{settings.rangeXAxis}</b></Paragraph>
-        )}
+          )}
         </Container>
         <Container $direction="column" $center>
-        <Container $centered="center">
-          <Paragraph $variant="bold">Autorange for y-axis:</Paragraph>
-          <Container $direction="column" $gap>
-            <InputTypeRadio
-              nameString="rangeYAxis"
-              valueString="true"
-              idString="normal range Y"
-              onChange={onSettingsChange}
-              labelString="yes, normal range"
-            />
-            <InputTypeRadio
-              nameString="rangeYAxis"
-              valueString="reversed"
-              idString="reversed range Y"
-              onChange={onSettingsChange}
-              labelString="yes, reversed range"
-            />
-            <InputTypeRadio
-              nameString="rangeYAxis"
-              valueString="min max"
-              idString="min max Y"
-              onChange={onSettingsChange}
-              labelString="no, set minimum and maximum"
-            />
+          <Container $centered="center">
+            <Paragraph $variant="bold">Autorange for y-axis:</Paragraph>
+            <Container $direction="column" $gap>
+              <InputTypeRadio
+                nameString="rangeYAxis"
+                valueString="true"
+                idString="normal range Y"
+                onChange={onSettingsChange}
+                labelString="yes, normal range"
+              />
+              <InputTypeRadio
+                nameString="rangeYAxis"
+                valueString="reversed"
+                idString="reversed range Y"
+                onChange={onSettingsChange}
+                labelString="yes, reversed range"
+              />
+              <InputTypeRadio
+                nameString="rangeYAxis"
+                valueString="min max"
+                idString="min max Y"
+                onChange={onSettingsChange}
+                labelString="no, set minimum and maximum"
+              />
+            </Container>
           </Container>
-        </Container>
-        {(settings.rangeYAxis.length != 0) && (
+          {(settings.rangeYAxis.length != 0) && (
             <Paragraph>y-axis autorange: <b>{settings.rangeYAxis}</b></Paragraph>
-        )}
+          )}
         </Container>
       </Container>
       {(settings.rangeXAxis === "min max" ||
@@ -87,7 +87,7 @@ export default function RangeProperties({
       <Container $wrap="wrap">
         <Container $centered="center">
           {settings.rangeXAxis === "min max" && (
-            <>
+            <Container $direction="column" $center>
               <Paragraph>x-axis:</Paragraph>
               <InputTypeNumber
                 nameString="minXAxis"
@@ -96,6 +96,9 @@ export default function RangeProperties({
                 labelString="min:"
                 placeholderString="Number (e.g. 10, 0.1, -1)"
               />
+              {((settings.minXAxis != null) && (settings.minXAxis != "")) && (
+                <Paragraph>x-axis min: <b>{settings.minXAxis}</b></Paragraph>
+              )}
               <InputTypeNumber
                 nameString="maxXAxis"
                 idString="maxXAxis"
@@ -103,12 +106,15 @@ export default function RangeProperties({
                 labelString="max:"
                 placeholderString="Number (e.g. 10, 0.1, -1)"
               />
-            </>
+              {((settings.maxXAxis != null)  && (settings.maxXAxis != "")) && (
+                <Paragraph>x-axis max: <b>{settings.maxXAxis}</b></Paragraph>
+              )}
+            </Container>
           )}
         </Container>
         <Container $centered="center">
           {settings.rangeYAxis === "min max" && (
-            <>
+            <Container $direction="column" $center>
               <Paragraph>y-axis:</Paragraph>
               <InputTypeNumber
                 nameString="minYAxis"
@@ -117,6 +123,9 @@ export default function RangeProperties({
                 labelString="min:"
                 placeholderString="Number (e.g. 10, 0.1, -1)"
               />
+              {((settings.minYAxis != null)  && (settings.minYAxis != "")) && (
+                <Paragraph>y-axis min: <b>{settings.minYAxis}</b></Paragraph>
+              )}
               <InputTypeNumber
                 nameString="maxYAxis"
                 idString="maxYAxis"
@@ -124,7 +133,10 @@ export default function RangeProperties({
                 labelString="max:"
                 placeholderString="Number (e.g. 10, 0.1, -1)"
               />
-            </>
+              {((settings.maxYAxis != null)  && (settings.maxYAxis != "")) && (
+                <Paragraph>y-axis max: <b>{settings.maxYAxis}</b></Paragraph>
+              )}
+            </Container>
           )}
         </Container>
       </Container>
