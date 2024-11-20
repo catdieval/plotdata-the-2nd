@@ -3,13 +3,17 @@ import InputTypeRadio from "../InputTypeRadio";
 import Container from "../Container";
 import InputTypeNumber from "../InputTypeNumber";
 
-export default function RangeProperties({ settings, onSettingsChange }) {
+export default function RangeProperties({ 
+  settings, 
+  onSettingsChange, 
+}) {
   return (
     <>
       <Container $centered="center">
         <Paragraph $variant="border">Range of values for axes:</Paragraph>
       </Container>
       <Container $wrap="wrap">
+        <Container $direction="column" $center>
         <Container $centered="center">
           <Paragraph $variant="bold">Autorange for x-axis:</Paragraph>
           <Container $direction="column" $gap>
@@ -36,6 +40,11 @@ export default function RangeProperties({ settings, onSettingsChange }) {
             />
           </Container>
         </Container>
+        {(settings.rangeXAxis.length != 0) && (
+            <Paragraph>x-axis autorange: <b>{settings.rangeXAxis}</b></Paragraph>
+        )}
+        </Container>
+        <Container $direction="column" $center>
         <Container $centered="center">
           <Paragraph $variant="bold">Autorange for y-axis:</Paragraph>
           <Container $direction="column" $gap>
@@ -61,6 +70,10 @@ export default function RangeProperties({ settings, onSettingsChange }) {
               labelString="no, set minimum and maximum"
             />
           </Container>
+        </Container>
+        {(settings.rangeYAxis.length != 0) && (
+            <Paragraph>y-axis autorange: <b>{settings.rangeYAxis}</b></Paragraph>
+        )}
         </Container>
       </Container>
       {(settings.rangeXAxis === "min max" ||
