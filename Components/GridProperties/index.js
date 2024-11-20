@@ -71,21 +71,35 @@ export default function GridProperties({
         </Container>
       )}
       <Container $wrap="wrap">
-        {settings.gridXAxis === "true" && (
-          <DropDownMenu
-            idString="x-axis"
-            nameString="gridLineStyleXAxis"
-            arrayOfOptions={lineStyleArray}
-            onChange={onSettingsChange}
-          />
+        {settings.gridXAxis === "true" && ( 
+          <>
+            <Container $direction="column" $center>
+              <DropDownMenu
+                idString="x-axis"
+                nameString="gridLineStyleXAxis"
+                arrayOfOptions={lineStyleArray}
+                onChange={onSettingsChange}
+              />
+              {(settings.gridLineStyleXAxis.length != 0) && (
+                <Paragraph>x-axis grid line style: <b>{settings.gridLineStyleXAxis}</b></Paragraph>
+              )}
+            </Container>
+          </>
         )}
         {settings.gridYAxis === "true" && (
-          <DropDownMenu
-            idString="y-axis"
-            nameString="gridLineStyleYAxis"
-            arrayOfOptions={lineStyleArray}
-            onChange={onSettingsChange}
-          />
+          <>
+            <Container $direction="column" $center>
+              <DropDownMenu
+                idString="y-axis"
+                nameString="gridLineStyleYAxis"
+                arrayOfOptions={lineStyleArray}
+                onChange={onSettingsChange}
+              />
+              {(settings.gridLineStyleYAxis.length != 0) && (
+                <Paragraph>y-axis grid line style: <b>{settings.gridLineStyleYAxis}</b></Paragraph>
+              )}
+            </Container>
+          </>
         )}
       </Container>
     </>
