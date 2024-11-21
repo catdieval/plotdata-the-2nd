@@ -4,7 +4,10 @@ import Container from "../Container";
 import { StyledH3 } from "../Heading";
 import Paragraph from "../Paragraph";
 
-export default function BarProperties({ onSettingsChange }) {
+export default function BarProperties({ 
+  onSettingsChange, 
+  settings,
+  }) {
   
   return (
     <>
@@ -16,6 +19,9 @@ export default function BarProperties({ onSettingsChange }) {
             onChange={onSettingsChange}
             arrayOfOptions={barColorArray}
           />
+          {(settings.barColor.length != 0) && (
+            <Paragraph>Bar color: <b>{settings.barColor}</b></Paragraph>
+          )}
       </Container>
     </>
   );

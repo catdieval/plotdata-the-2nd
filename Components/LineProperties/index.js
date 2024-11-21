@@ -8,10 +8,13 @@ import {
   lineWidthArray,
 } from "../../lib/listOfLineProperties";
 
-export default function LineProperties({ onSettingsChange }) {
+export default function LineProperties({ 
+  onSettingsChange,
+  settings, 
+}) {
   
   return (
-      <Container $centered="center" $gap $margin>
+      <Container $centered="center" $margin>
         <StyledH3>Line properties</StyledH3>
         <Paragraph>Line color:</Paragraph>
         <DropDownMenu
@@ -19,18 +22,31 @@ export default function LineProperties({ onSettingsChange }) {
           onChange={onSettingsChange}
           arrayOfOptions={lineColorArray}
         />
+        {(settings.lineColor.length != 0) && (
+          <Paragraph>Line color: <b>{settings.lineColor}</b></Paragraph>
+        )}
+        <br />
+        <br />
         <Paragraph>Line style:</Paragraph>
         <DropDownMenu
           nameString="lineStyle"
           onChange={onSettingsChange}
           arrayOfOptions={lineStyleArray}
         />
+        {(settings.lineStyle.length != 0) && (
+          <Paragraph>Line style: <b>{settings.lineStyle}</b></Paragraph>
+        )}
+        <br />
+        <br />
         <Paragraph>Line width (in pixels):</Paragraph>
         <DropDownMenu
           nameString="lineWidth"
           onChange={onSettingsChange}
           arrayOfOptions={lineWidthArray}
         />
+        {((settings.lineWidth != null) && (settings.lineWidth != "")) && (
+          <Paragraph>Line width: <b>{settings.lineWidth}</b></Paragraph>
+        )}
       </Container>
   );
 }

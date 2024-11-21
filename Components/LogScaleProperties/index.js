@@ -15,7 +15,10 @@ const InfoButtonWrapper = styled.div`
   transform: translate(370%, -50%);
 `;
 
-export default function LogScaleProperties({ onSettingsChange }) {
+export default function LogScaleProperties({ 
+  onSettingsChange,
+  settings, 
+}) {
   return (
     <>
       <TitleWrapper>
@@ -30,42 +33,52 @@ export default function LogScaleProperties({ onSettingsChange }) {
       </TitleWrapper>
       <Container $wrap="wrap">
         <Container $direction="column" $center>
-          <Paragraph $variant="bold">For x-axis:</Paragraph>
-          <Container $direction="column">
-            <InputTypeRadio
-              labelString="yes"
-              idString="yes"
-              valueString="log"
-              onChange={onSettingsChange}
-              nameString="logXAxis"
-            />
-            <InputTypeRadio
-              labelString="no, use a linear scale"
-              idString="no"
-              valueString="linear"
-              onChange={onSettingsChange}
-              nameString="logXAxis"
-            />
+          <Container $direction="column" $center>
+            <Paragraph $variant="bold">For x-axis:</Paragraph>
+            <Container $direction="column">
+              <InputTypeRadio
+                labelString="yes"
+                idString="yes"
+                valueString="log"
+                onChange={onSettingsChange}
+                nameString="logXAxis"
+              />
+              <InputTypeRadio
+                labelString="no, use a linear scale"
+                idString="no"
+                valueString="linear"
+                onChange={onSettingsChange}
+                nameString="logXAxis"
+              />
+            </Container>
           </Container>
+          {(settings.logXAxis.length != 0) && (
+            <Paragraph>x-axis scale: <b>{settings.logXAxis}</b></Paragraph>
+          )}
         </Container>
         <Container $direction="column" $center>
-          <Paragraph $variant="bold">For y-axis:</Paragraph>
-          <Container $direction="column">
-            <InputTypeRadio
-              labelString="yes"
-              idString="yes"
-              valueString="log"
-              onChange={onSettingsChange}
-              nameString="logYAxis"
-            />
-            <InputTypeRadio
-              labelString="no, use a linear scale"
-              idString="no"
-              valueString="linear"
-              onChange={onSettingsChange}
-              nameString="logYAxis"
-            />
+          <Container $direction="column" $center>
+            <Paragraph $variant="bold">For y-axis:</Paragraph>
+            <Container $direction="column">
+              <InputTypeRadio
+                labelString="yes"
+                idString="yes"
+                valueString="log"
+                onChange={onSettingsChange}
+                nameString="logYAxis"
+              />
+              <InputTypeRadio
+                labelString="no, use a linear scale"
+                idString="no"
+                valueString="linear"
+                onChange={onSettingsChange}
+                nameString="logYAxis"
+              />
+            </Container> 
           </Container>
+          {(settings.logYAxis.length != 0) && (
+            <Paragraph>y-axis scale: <b>{settings.logYAxis}</b></Paragraph>
+          )}
         </Container>
       </Container>
     </>

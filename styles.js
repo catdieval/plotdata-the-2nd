@@ -33,4 +33,8 @@ export default createGlobalStyle`
     position: absolute;
     z-index: 10;
   }
+
+  b {
+    font-weight: 600;
+  }
 `;

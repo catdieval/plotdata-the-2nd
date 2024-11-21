@@ -12,6 +12,7 @@ export default function XandYLabelsGraph({
   xKey, 
   yKey, 
   onSettingsChange, 
+  settings,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -19,10 +20,9 @@ export default function XandYLabelsGraph({
 
   return (
     <>
-      <Paragraph>For the x variable you chose:</Paragraph>
-      <Paragraph $variant="bold">{xKey}</Paragraph>
-      <Paragraph>For the y variable you chose:</Paragraph>
-      <Paragraph $variant="bold">{yKey}</Paragraph>
+      <Paragraph>For the x variable you chose: <b>{xKey}</b></Paragraph>
+      <Paragraph>For the y variable you chose: <b>{yKey}</b></Paragraph>
+      <br />
       <form onSubmit={handleSubmit}>
         <Container $centered="center" $margin_bottom>
           <InputTypeText
@@ -31,7 +31,11 @@ export default function XandYLabelsGraph({
             placeholderString={"Fill me with name and unit, e.g. Age (years)"}
             onChange={onSettingsChange}
           />
-          <br></br>
+          {(settings.xLabel.length != 0) && (
+            <Paragraph>x-axis label: <b>{settings.xLabel}</b></Paragraph>
+          )}
+          <br />
+          <br />
           <InputTypeText
             idString={"Label for the y-axis"}
             nameString="yLabel"
@@ -40,6 +44,9 @@ export default function XandYLabelsGraph({
             }
             onChange={onSettingsChange}
           />
+          {(settings.yLabel.length != 0) && (
+            <Paragraph>y-axis label: <b>{settings.yLabel}</b></Paragraph>
+          )}
         </Container>
         <ButtonContainer>
           <Button $variant="back" onClick={onBack}>
